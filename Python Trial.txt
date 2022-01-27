@@ -1,0 +1,6 @@
+Name = John Smith
+Age = 20
+new_patient = True
+Print (name)
+Print (age)
+Print ("Is this a new patient?" + new_patient)
