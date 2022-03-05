@@ -12,13 +12,14 @@ def displayMenu():
     choice = input("Type one letter (a/v/q):").strip()
     return choice
 
-
+# function that passes student name and puts with module as dict objects and adds them to list
 def doAdd(students):
     currentStudent = {}
     currentStudent["name"]=input("Enter name :")
     currentStudent["modules"]= readModules()
     students.append(currentStudent)
 
+# reads in the module information along with grade
 def readModules():
     modules = []
     moduleName = input("\tEnter the first Module name (blank to quit) :").strip()
@@ -26,13 +27,13 @@ def readModules():
     while moduleName != "":
         module = {}
         module["name"]= moduleName
-        # I am not doing error handling
         module["grade"]=int(input("\t\tEnter grade:"))
         modules.append(module)
-        # now read the next module name
         moduleName = input("\tEnter next module name (blank to quit) :").strip()
 
     return modules
+
+# outputting the information together (tabbed for neatness)
 def displayModules(modules):
     print ("\tName   \tGrade")
     for module in modules:
@@ -45,12 +46,10 @@ def doView(students):
         displayModules(currentStudent["modules"]);
 
 
-#main program
+# main program
 students = []
 choice = displayMenu()
 while(choice != 'q'):
-    # we could do this with lamda functions
-    # I am keeping this basic for the moment
     if choice == 'a':
         doAdd(students)
     elif choice == 'v':
